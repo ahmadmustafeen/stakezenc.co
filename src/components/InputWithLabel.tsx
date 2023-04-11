@@ -1,15 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
-  StyleSheet,
   Text,
   TextInput,
   TextInputProps,
   TouchableOpacity,
   View,
 } from 'react-native';
-// import {Icon} from 'react-native-elements';
-// import {AppText} from './AppText';
 
 interface InputWithLabelProps {
   autoFocus?: boolean;
@@ -66,9 +63,9 @@ const InputWithLabel = (props: InputWithLabelProps) => {
           style={[
             {
               width: '100%',
-              height: 50,
-              paddingTop: 15,
-              borderRadius: 15,
+              height: 45,
+              paddingTop: 12,
+              borderRadius: 100,
               backgroundColor: 'white',
               paddingHorizontal: 15,
             },
@@ -80,30 +77,12 @@ const InputWithLabel = (props: InputWithLabelProps) => {
         />
       </View>
       {secureTextEntry && (
-        <TouchableOpacity
-          // contentContainerStyle={styles.eyeContainer}
-          onPress={() => setVisible(!visible)}>
+        <TouchableOpacity onPress={() => setVisible(!visible)}>
           <Text>X</Text>
-          {/* <Icon
-            name={visible ? 'eye-off' : 'eye'}
-            type="material-community"
-            color="black"
-            size={20}
-          /> */}
         </TouchableOpacity>
       )}
     </View>
   );
 };
-const styles = StyleSheet.create({
-  eyeContainer: {
-    // width: 30,
-    // height: 30,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    position: 'absolute',
-    // right: 20,
-    bottom: 23,
-  },
-});
+
 export {InputWithLabel};
