@@ -9,6 +9,7 @@ interface AppTextProps {
   black?: boolean;
   text?: boolean;
   heading?: boolean;
+  largerHeading?: boolean;
   smallText?: boolean;
   bold?: boolean;
   semibold?: boolean;
@@ -26,6 +27,7 @@ const AppText = (props: AppTextProps) => {
     black = true,
     text,
     heading,
+    largerHeading,
     smallText,
     primary,
     uppercase,
@@ -44,6 +46,7 @@ const AppText = (props: AppTextProps) => {
           white && {color: 'white'},
           primary && {color: primaryBlue},
           secondary && {color: primaryText},
+          largerHeading && {fontSize: 32},
           heading && {fontSize: 24},
           text && {fontSize: 16},
           smallText && {fontSize: 14},

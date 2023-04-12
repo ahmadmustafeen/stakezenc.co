@@ -1,6 +1,7 @@
-import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
 import React from 'react';
 import {white} from '../constants';
+import {AppText} from './AppText';
 
 interface AppHeaderProps {
   title: string;
@@ -9,10 +10,12 @@ interface AppHeaderProps {
 }
 
 const AppHeader = (props: AppHeaderProps) => {
-  const {title, containerStyle, headingStyle} = props;
+  const {title, containerStyle} = props;
   return (
     <View style={[styles.container, containerStyle]}>
-      <Text style={[styles.heading, headingStyle]}>{title}</Text>
+      <AppText largerHeading white center bold>
+        {title}
+      </AppText>
     </View>
   );
 };
