@@ -1,16 +1,18 @@
 /* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {AppText} from '../components';
 import {primaryBlue} from '../constants';
 interface AppButtonProps {
   label: string;
   transparent?: boolean;
+  onPress?: () => void;
 }
 const AppButton = (props: AppButtonProps) => {
-  const {label, transparent} = props;
+  const {label, transparent, onPress} = props;
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
       style={[
         styles.container,
         transparent && {borderColor: 'white', backgroundColor: 'transparent'},
@@ -18,7 +20,7 @@ const AppButton = (props: AppButtonProps) => {
       <AppText white center bold smallText>
         {label}
       </AppText>
-    </View>
+    </TouchableOpacity>
   );
 };
 

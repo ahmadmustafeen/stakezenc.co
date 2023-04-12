@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import React from 'react';
 import {secondaryBlue} from '../../../constants';
 import {
@@ -29,7 +29,6 @@ const AuthHeader = () => {
     <>
       <View
         style={{
-          backgroundColor: secondaryBlue,
           paddingBottom: 10,
           paddingTop: 30,
           width: '100%',
@@ -49,15 +48,21 @@ const AuthHeader = () => {
           <AppButton label="Sign up" transparent />
         </View>
       </View>
-      <AuthHeaderTail />
+      {/* <AuthHeaderTail /> */}
     </>
   );
 };
 
 const Login = () => {
   return (
-    <View style={styles.container}>
-      <AuthHeader />
+    <ScrollView style={styles.container}>
+      <View
+        style={{
+          backgroundColor: secondaryBlue,
+        }}>
+        <AuthHeader />
+      </View>
+      <AuthHeaderTail />
       <View style={styles.contentContainer}>
         <AppHeader title="Sign in" />
         <View style={styles.inputContainer}>
@@ -75,7 +80,7 @@ const Login = () => {
           </AppText>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
