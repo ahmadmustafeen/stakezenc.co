@@ -7,9 +7,10 @@ interface AppButtonProps {
   label: string;
   transparent?: boolean;
   onPress?: () => void;
+  uppercase?: boolean;
 }
 const AppButton = (props: AppButtonProps) => {
-  const {label, transparent, onPress} = props;
+  const {label, transparent, onPress, uppercase} = props;
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -17,7 +18,7 @@ const AppButton = (props: AppButtonProps) => {
         styles.container,
         transparent && {borderColor: 'white', backgroundColor: 'transparent'},
       ]}>
-      <AppText white center bold smallText>
+      <AppText white center bold smallText uppercase={uppercase}>
         {label}
       </AppText>
     </TouchableOpacity>

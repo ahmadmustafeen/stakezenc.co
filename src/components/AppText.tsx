@@ -14,6 +14,7 @@ interface AppTextProps {
   semibold?: boolean;
   center?: boolean;
   underline?: boolean;
+  uppercase?: boolean;
   primary?: boolean;
   secondary?: boolean;
 }
@@ -27,6 +28,7 @@ const AppText = (props: AppTextProps) => {
     heading,
     smallText,
     primary,
+    uppercase,
     secondary,
     underline,
     bold = false,
@@ -49,6 +51,7 @@ const AppText = (props: AppTextProps) => {
           bold && {fontWeight: 'bold'},
           semibold && {fontWeight: '600'},
           center && {textAlign: 'center'},
+          uppercase && {textTransform: 'uppercase'},
         ]}>
         {children}
       </Text>

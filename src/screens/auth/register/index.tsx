@@ -12,18 +12,6 @@ import {
 } from '../../../components';
 import {styles} from './style';
 
-const AuthHeaderTail = () => {
-  return (
-    <View
-      style={{
-        backgroundColor: secondaryBlue,
-        height: 40,
-        width: '100%',
-        borderBottomLeftRadius: 400,
-        borderBottomRightRadius: 400,
-      }}></View>
-  );
-};
 const AuthHeader = () => {
   return (
     <>
@@ -35,17 +23,17 @@ const AuthHeader = () => {
         }}>
         <View style={{width: '90%', alignSelf: 'center'}}>
           <AppText white heading bold center>
-            Register Now
+            Already Have Account?
           </AppText>
         </View>
         <View style={{width: '85%', alignSelf: 'center'}}>
           <AppText white smallText center semibold>
-            If you are not member of this website then create your account for
-            successfull login
+            Use your Account and type the username and password to sign in
+            privately.
           </AppText>
         </View>
         <View style={{paddingVertical: 15}}>
-          <AppButton label="Sign up" transparent />
+          <AppButton label="Sign in" transparent uppercase />
         </View>
       </View>
       {/* <AuthHeaderTail /> */}
@@ -53,35 +41,45 @@ const AuthHeader = () => {
   );
 };
 
-const Login = () => {
+const Register = () => {
   return (
     <ScrollView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: secondaryBlue,
-        }}>
-        <AuthHeader />
-      </View>
-      <AuthHeaderTail />
       <View style={styles.contentContainer}>
-        <AppHeader title="Sign in" />
+        <AppHeader title="Sign up" />
+        <View style={styles.inputContainer}>
+          <InputWithLabel placeholder="Sponsor Id" />
+        </View>
         <View style={styles.inputContainer}>
           <InputWithLabel placeholder="Username" />
         </View>
         <View style={styles.inputContainer}>
-          <InputWithLabel placeholder="Password" secureTextEntry />
+          <InputWithLabel placeholder="Full name" />
         </View>
-        <View style={{paddingVertical: 15}}>
-          <AppButton label="Login" uppercase />
+        <View style={styles.inputContainer}>
+          <InputWithLabel placeholder="Password" />
         </View>
-        <View style={{marginVertical: 10}}>
-          <AppText white center secondary text bold>
-            Forgot Password?
-          </AppText>
+        <View style={styles.inputContainer}>
+          <InputWithLabel placeholder="Country Flag" />
+        </View>
+        <AppText white center secondary smallText bold>
+          I read and agree to the Terms & Conditions
+        </AppText>
+        <View style={{paddingTop: 15}}>
+          <AppButton label="Sign Up" uppercase />
+        </View>
+      </View>
+      <View style={{width: '100%'}}>
+        <View
+          style={{
+            backgroundColor: secondaryBlue,
+            borderTopLeftRadius: 50,
+            borderTopRightRadius: 50,
+          }}>
+          <AuthHeader />
         </View>
       </View>
     </ScrollView>
   );
 };
 
-export default Login;
+export default Register;

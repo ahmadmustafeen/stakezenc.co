@@ -1,8 +1,9 @@
 import React from 'react';
-import Login from './screens/auth/login';
+// import Login from './screens/auth/login';
+import Register from './screens/auth/register';
 
 const App = () => {
-  return <Login />;
+  return <Register />;
 };
 
 export default App;
