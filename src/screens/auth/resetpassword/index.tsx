@@ -1,5 +1,4 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
 
 import {ScrollView, View} from 'react-native';
 import React from 'react';
