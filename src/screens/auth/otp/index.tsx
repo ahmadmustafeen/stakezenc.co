@@ -2,7 +2,7 @@
 
 import {ScrollView, View} from 'react-native';
 import React from 'react';
-import {AppHeader, AppButton, InputWithLabel} from '../../../components';
+import {AppHeader, AppButton} from '../../../components';
 import {styles} from './style';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import {white} from '../../../constants';
