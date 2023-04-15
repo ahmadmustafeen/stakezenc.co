@@ -1,5 +1,6 @@
 import React from 'react';
-import SuccessScreen from './screens/auth/success';
+import Navigator from './navigation';
+// import SuccessScreen from './screens/auth/success';
 // import OTPScreen from './screens/auth/otp';
 // import ForgotPassword from './screens/auth/forgotpassword';
 // import ResetPassword from './screens/auth/resetpassword';
@@ -7,7 +8,7 @@ import SuccessScreen from './screens/auth/success';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <SuccessScreen />;
+  return <Navigator />;
 };
 
 export default App;
