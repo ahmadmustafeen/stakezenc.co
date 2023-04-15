@@ -3,13 +3,8 @@ import {StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {AppText} from '../components';
 import {primaryBlue} from '../constants';
-interface AppButtonProps {
-  label: string;
-  transparent?: boolean;
-  onPress?: () => void;
-  uppercase?: boolean;
-  width?: string | number | undefined;
-}
+import {AppButtonProps} from '../types';
+
 const AppButton = (props: AppButtonProps) => {
   const {label, transparent, onPress, uppercase, width} = props;
   return (

@@ -2,23 +2,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {primaryBlue, primaryText} from '../constants';
-
-interface AppTextProps {
-  children: string;
-  white?: boolean;
-  black?: boolean;
-  text?: boolean;
-  heading?: boolean;
-  largerHeading?: boolean;
-  smallText?: boolean;
-  bold?: boolean;
-  semibold?: boolean;
-  center?: boolean;
-  underline?: boolean;
-  uppercase?: boolean;
-  primary?: boolean;
-  secondary?: boolean;
-}
+import {AppTextProps} from '../types';
 
 const AppText = (props: AppTextProps) => {
   const {

@@ -1,26 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  Text,
-  TextInput,
-  TextInputProps,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
-interface InputWithLabelProps {
-  autoFocus?: boolean;
-  value?: string;
-  onChangeText?: (e: string) => void;
-  secureTextEntry?: boolean;
-  textAlignVertical?: 'center' | 'auto' | 'top' | 'bottom' | undefined;
-  onSubmitEditing?: () => void;
-  placeholder?: string;
-  isNumber?: boolean;
-  multiline?: boolean;
-  inputStyle?: TextInputProps;
-  readOnly?: boolean;
-}
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {InputWithLabelProps} from '../types';
 
 const InputWithLabel = (props: InputWithLabelProps) => {
   const {

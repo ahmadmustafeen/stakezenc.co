@@ -1,13 +1,8 @@
-import {StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {white} from '../constants';
 import {AppText} from './AppText';
-
-interface AppHeaderProps {
-  title: string;
-  containerStyle?: ViewStyle;
-  headingStyle?: TextStyle;
-}
+import {AppHeaderProps} from '../types';
 
 const AppHeader = (props: AppHeaderProps) => {
   const {title, containerStyle} = props;

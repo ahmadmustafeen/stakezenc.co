@@ -12,6 +12,7 @@ import {
 } from '../../../components';
 import {styles} from './style';
 import {REGISTER_SCREEN} from '../../../constants/screen';
+import {AuthHeaderProps} from '../../../types';
 
 const AuthHeaderTail = () => {
   return (
@@ -25,10 +26,6 @@ const AuthHeaderTail = () => {
       }}></View>
   );
 };
-
-interface AuthHeaderProps {
-  onPress?: () => void;
-}
 
 const AuthHeader = (props: AuthHeaderProps) => {
   const {onPress} = props;
