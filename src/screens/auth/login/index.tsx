@@ -11,6 +11,7 @@ import {
   InputWithLabel,
 } from '../../../components';
 import {styles} from './style';
+import {REGISTER_SCREEN} from '../../../constants/screen';
 
 const AuthHeaderTail = () => {
   return (
@@ -24,7 +25,14 @@ const AuthHeaderTail = () => {
       }}></View>
   );
 };
-const AuthHeader = () => {
+
+interface AuthHeaderProps {
+  onPress?: () => void;
+}
+
+const AuthHeader = (props: AuthHeaderProps) => {
+  const {onPress} = props;
+
   return (
     <>
       <View
@@ -45,22 +53,23 @@ const AuthHeader = () => {
           </AppText>
         </View>
         <View style={{paddingVertical: 15}}>
-          <AppButton label="Sign up" transparent />
+          <AppButton label="Sign up" transparent onPress={onPress} />
         </View>
       </View>
-      {/* <AuthHeaderTail /> */}
     </>
   );
 };
 
-const Login = () => {
+const Login = (props: any) => {
   return (
     <ScrollView style={styles.container}>
       <View
         style={{
           backgroundColor: secondaryBlue,
         }}>
-        <AuthHeader />
+        <AuthHeader
+          onPress={() => props.navigation.navigate(REGISTER_SCREEN)}
+        />
       </View>
       <AuthHeaderTail />
       <View style={styles.contentContainer}>
@@ -72,7 +81,11 @@ const Login = () => {
           <InputWithLabel placeholder="Password" secureTextEntry />
         </View>
         <View style={{paddingVertical: 15}}>
-          <AppButton label="Login" uppercase />
+          <AppButton
+            label="Login"
+            uppercase
+            // onPress={}
+          />
         </View>
         <View style={{marginVertical: 10}}>
           <AppText white center secondary text bold>
