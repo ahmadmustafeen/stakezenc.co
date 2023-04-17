@@ -1,7 +1,6 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-
-import {Alert, ScrollView, View} from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
+import {Alert, ScrollView, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {secondaryBlue} from '../../../constants';
 import {
@@ -11,7 +10,10 @@ import {
   InputWithLabel,
 } from '../../../components';
 import {styles} from './style';
-import {REGISTER_SCREEN} from '../../../constants/screen';
+import {
+  FORGOT_PASSWORD_SCREEN,
+  REGISTER_SCREEN,
+} from '../../../constants/screen';
 import {AuthHeaderProps} from '../../../types';
 import {AlertPrompt} from '../../../components/AlertPrompt';
 
@@ -100,6 +102,9 @@ const Login = (props: any) => {
     );
   };
 
+  const navigateToForgotPassword = () =>
+    props.navigation.navigate(FORGOT_PASSWORD_SCREEN);
+
   return (
     <>
       <AlertPrompt
@@ -136,14 +141,16 @@ const Login = (props: any) => {
               onChangeText={value => handleChange('password', value)}
             />
           </View>
-          <View style={{paddingVertical: 15}}>
+          <View style={styles.buttonContainer}>
             <AppButton label="Login" uppercase onPress={onLogin} />
           </View>
-          <View style={{marginVertical: 10}}>
+          <TouchableOpacity
+            style={styles.forgotContainer}
+            onPress={navigateToForgotPassword}>
             <AppText white center secondary text bold>
               Forgot Password?
             </AppText>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </>

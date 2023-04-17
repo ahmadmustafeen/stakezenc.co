@@ -16,4 +16,10 @@ export const styles = StyleSheet.create({
     height: 70,
     width: '100%',
   },
+  buttonContainer: {
+    paddingVertical: 15,
+  },
+  forgotContainer: {
+    marginVertical: 10,
+  },
 });
