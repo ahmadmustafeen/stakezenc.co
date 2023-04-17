@@ -47,3 +47,10 @@ export interface InputWithLabelProps {
 export interface AuthHeaderProps {
   onPress?: () => void;
 }
+
+export interface AlertPromptProps {
+  isVisible: boolean;
+  onPressRetry: () => void;
+  title: string;
+  message: string;
+}
