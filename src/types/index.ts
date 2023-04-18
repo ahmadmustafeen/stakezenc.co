@@ -6,6 +6,11 @@ export interface AppButtonProps {
   onPress?: () => void;
   uppercase?: boolean;
   width?: string | number | undefined;
+  smallText?: boolean;
+  text?: boolean;
+  bgColor?: string;
+  heading?: boolean;
+  containerStyle?: ViewStyle;
 }
 export interface AppHeaderProps {
   title: string;
