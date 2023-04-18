@@ -11,7 +11,7 @@ import {
   InputWithLabel,
 } from '../../../components';
 import {styles} from './style';
-import {LOGIN_SCREEN} from '../../../constants/screen';
+import {LOGIN_SCREEN, OTP_SCREEN} from '../../../constants/screen';
 import {AlertPrompt} from '../../../components/AlertPrompt';
 
 const AuthHeaderTail = () => {
@@ -95,6 +95,7 @@ const ForgotPassword = (props: any) => {
       'Forgot Password Success',
       'This will redirect to the OTP if username exists',
     );
+    navigation.navigate(OTP_SCREEN);
   };
   return (
     <>
