@@ -1,8 +1,7 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-
-import {ScrollView, View} from 'react-native';
-import React from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import {Alert, ScrollView, TouchableOpacity, View} from 'react-native';
+import React, {useState} from 'react';
 import {secondaryBlue} from '../../../constants';
 import {
   AppHeader,
@@ -11,7 +10,12 @@ import {
   InputWithLabel,
 } from '../../../components';
 import {styles} from './style';
-import {REGISTER_SCREEN} from '../../../constants/screen';
+import {
+  FORGOT_PASSWORD_SCREEN,
+  REGISTER_SCREEN,
+} from '../../../constants/screen';
+import {AuthHeaderProps} from '../../../types';
+import {AlertPrompt} from '../../../components/AlertPrompt';
 
 const AuthHeaderTail = () => {
   return (
@@ -25,10 +29,6 @@ const AuthHeaderTail = () => {
       }}></View>
   );
 };
-
-interface AuthHeaderProps {
-  onPress?: () => void;
-}
 
 const AuthHeader = (props: AuthHeaderProps) => {
   const {onPress} = props;
@@ -61,39 +61,99 @@ const AuthHeader = (props: AuthHeaderProps) => {
 };
 
 const Login = (props: any) => {
+  const [state, setState] = useState({username: '', password: ''});
+  const [error, setError] = useState({
+    hasError: false,
+    title: '',
+    message: '',
+  });
+
+  const handleChange = (key: string, value: string | number) =>
+    setState({...state, [key]: value});
+
+  const validation = () => {
+    if (!state.username) {
+      setError({
+        hasError: true,
+        title: 'Validation Error',
+        message: 'Username Required!',
+      });
+      return false;
+    }
+    if (!state.password) {
+      setError({
+        hasError: true,
+        title: 'Validation Error',
+        message: 'Password Required!',
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const onLogin = () => {
+    if (!validation()) {
+      return false;
+    }
+
+    Alert.alert(
+      'Login Success',
+      'This will redirect to the dashboard if auth is successfull',
+    );
+  };
+
+  const navigateToForgotPassword = () =>
+    props.navigation.navigate(FORGOT_PASSWORD_SCREEN);
+
   return (
-    <ScrollView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: secondaryBlue,
-        }}>
-        <AuthHeader
-          onPress={() => props.navigation.navigate(REGISTER_SCREEN)}
-        />
-      </View>
-      <AuthHeaderTail />
-      <View style={styles.contentContainer}>
-        <AppHeader title="Sign in" />
-        <View style={styles.inputContainer}>
-          <InputWithLabel placeholder="Username" />
-        </View>
-        <View style={styles.inputContainer}>
-          <InputWithLabel placeholder="Password" secureTextEntry />
-        </View>
-        <View style={{paddingVertical: 15}}>
-          <AppButton
-            label="Login"
-            uppercase
-            // onPress={}
+    <>
+      <AlertPrompt
+        isVisible={error.hasError}
+        message={error.message}
+        title={error.title}
+        onPressRetry={() => setError({hasError: false, title: '', message: ''})}
+      />
+
+      <ScrollView style={styles.container}>
+        <View
+          style={{
+            backgroundColor: secondaryBlue,
+          }}>
+          <AuthHeader
+            onPress={() => props.navigation.navigate(REGISTER_SCREEN)}
           />
         </View>
-        <View style={{marginVertical: 10}}>
-          <AppText white center secondary text bold>
-            Forgot Password?
-          </AppText>
+        <AuthHeaderTail />
+        <View style={styles.contentContainer}>
+          <AppHeader title="Sign in" />
+          <View style={styles.inputContainer}>
+            <InputWithLabel
+              value={state.username}
+              placeholder="Username"
+              onChangeText={value => handleChange('username', value)}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <InputWithLabel
+              placeholder="Password"
+              value={state.password}
+              secureTextEntry
+              onChangeText={value => handleChange('password', value)}
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <AppButton label="Login" uppercase onPress={onLogin} />
+          </View>
+          <TouchableOpacity
+            style={styles.forgotContainer}
+            onPress={navigateToForgotPassword}>
+            <AppText white center secondary text bold>
+              Forgot Password?
+            </AppText>
+          </TouchableOpacity>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 };
 

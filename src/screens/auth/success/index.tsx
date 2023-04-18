@@ -4,8 +4,10 @@ import {ScrollView, View} from 'react-native';
 import React from 'react';
 import {AppHeader, AppButton, AppText} from '../../../components';
 import {styles} from './style';
+import {LOGIN_SCREEN} from '../../../constants/screen';
 
-const SuccessScreen = () => {
+const SuccessScreen = (props: any) => {
+  const {navigation} = props;
   return (
     <ScrollView
       style={styles.container}
@@ -22,7 +24,11 @@ const SuccessScreen = () => {
           </AppText>
         </View>
         <View style={{paddingVertical: 15}}>
-          <AppButton label="Back to Login" uppercase />
+          <AppButton
+            label="Back to Login"
+            uppercase
+            onPress={() => navigation.navigate(LOGIN_SCREEN)}
+          />
         </View>
       </View>
     </ScrollView>

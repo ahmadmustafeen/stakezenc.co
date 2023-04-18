@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 
-import {ScrollView, View} from 'react-native';
-import React from 'react';
+import {Alert, ScrollView, View} from 'react-native';
+import React, {useState} from 'react';
 import {secondaryBlue} from '../../../constants';
 import {
   AppHeader,
@@ -11,6 +11,8 @@ import {
   InputWithLabel,
 } from '../../../components';
 import {styles} from './style';
+import {LOGIN_SCREEN, OTP_SCREEN} from '../../../constants/screen';
+import {AlertPrompt} from '../../../components/AlertPrompt';
 
 const AuthHeaderTail = () => {
   return (
@@ -24,7 +26,9 @@ const AuthHeaderTail = () => {
       }}></View>
   );
 };
-const AuthHeader = () => {
+
+const AuthHeader = (props: any) => {
+  const {navigateToSignIn} = props;
   return (
     <>
       <View
@@ -45,33 +49,92 @@ const AuthHeader = () => {
           </AppText>
         </View>
         <View style={{paddingVertical: 15}}>
-          <AppButton label="Sign in" transparent uppercase />
+          <AppButton
+            label="Sign in"
+            transparent
+            uppercase
+            onPress={navigateToSignIn}
+          />
         </View>
       </View>
     </>
   );
 };
 
-const ForgotPassword = () => {
+const ForgotPassword = (props: any) => {
+  const {navigation} = props;
+  const [state, setState] = useState({username: ''});
+  const [error, setError] = useState({
+    hasError: false,
+    title: '',
+    message: '',
+  });
+
+  const handleChange = (key: string, value: string | number) =>
+    setState({...state, [key]: value});
+
+  const validation = () => {
+    if (!state.username) {
+      setError({
+        hasError: true,
+        title: 'Validation Error',
+        message: 'Username Required!',
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  const onApplyForgotPassword = () => {
+    if (!validation()) {
+      return false;
+    }
+
+    Alert.alert(
+      'Forgot Password Success',
+      'This will redirect to the OTP if username exists',
+    );
+    navigation.navigate(OTP_SCREEN);
+  };
   return (
-    <ScrollView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: secondaryBlue,
-        }}>
-        <AuthHeader />
-      </View>
-      <AuthHeaderTail />
-      <View style={styles.contentContainer}>
-        <AppHeader title="Forgot Password" />
-        <View style={styles.inputContainer}>
-          <InputWithLabel placeholder="Email" />
+    <>
+      <AlertPrompt
+        isVisible={error.hasError}
+        message={error.message}
+        title={error.title}
+        onPressRetry={() => setError({hasError: false, title: '', message: ''})}
+      />
+      <ScrollView style={styles.container}>
+        <View
+          style={{
+            backgroundColor: secondaryBlue,
+          }}>
+          <AuthHeader
+            navigateToSignIn={() => navigation.navigate(LOGIN_SCREEN)}
+          />
         </View>
-        <View style={{paddingVertical: 15}}>
-          <AppButton label="Reset Password" uppercase width={160} />
+        <AuthHeaderTail />
+        <View style={styles.contentContainer}>
+          <AppHeader title="Forgot Password" />
+          <View style={styles.inputContainer}>
+            <InputWithLabel
+              placeholder="Email"
+              value={state.username}
+              onChangeText={e => handleChange('username', e)}
+            />
+          </View>
+          <View style={{paddingVertical: 15}}>
+            <AppButton
+              label="Reset Password"
+              uppercase
+              width={160}
+              onPress={onApplyForgotPassword}
+            />
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 };
 
