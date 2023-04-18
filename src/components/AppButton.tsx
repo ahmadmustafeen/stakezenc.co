@@ -6,16 +6,36 @@ import {primaryBlue} from '../constants';
 import {AppButtonProps} from '../types';
 
 const AppButton = (props: AppButtonProps) => {
-  const {label, transparent, onPress, uppercase, width} = props;
+  const {
+    label,
+    transparent,
+    onPress,
+    uppercase,
+    bgColor,
+    width,
+    smallText = true,
+    text,
+    heading,
+    containerStyle,
+  } = props;
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[
         styles.container,
+        !!bgColor && {backgroundColor: bgColor, borderColor: bgColor},
         transparent && {borderColor: 'white', backgroundColor: 'transparent'},
         !!width && {width: width},
+        containerStyle,
       ]}>
-      <AppText white center bold smallText uppercase={uppercase}>
+      <AppText
+        white
+        center
+        bold
+        smallText={smallText}
+        text={text}
+        heading={heading}
+        uppercase={uppercase}>
         {label}
       </AppText>
     </TouchableOpacity>
