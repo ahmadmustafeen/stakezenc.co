@@ -1,5 +1,6 @@
 import React from 'react';
-import BonusSummaryScreen from './screens/dashboard/summaryBonus';
+// import BonusSummaryScreen from './screens/dashboard/summaryBonus';
+import LevelSummaryScreen from './screens/dashboard/summaryLevel';
 // import DepositScreen from './screens/dashboard/deposit';
 // import DepositSummaryScreen from './screens/dashboard/summaryDeposit';
 // import DirectTeam from './screens/dashboard/directTeam';
@@ -15,7 +16,7 @@ import BonusSummaryScreen from './screens/dashboard/summaryBonus';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <BonusSummaryScreen />;
+  return <LevelSummaryScreen />;
 };
 
 export default App;
