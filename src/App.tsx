@@ -1,5 +1,6 @@
 import React from 'react';
-import DirectTeam from './screens/dashboard/directTeam';
+// import DirectTeam from './screens/dashboard/directTeam';
+import StructureTeam from './screens/dashboard/structureTeam';
 // import Navigator from './navigation';
 // import HomeScreen from './screens/dashboard/home';
 // import ProfileScreen from './screens/dashboard/profile';
@@ -11,7 +12,7 @@ import DirectTeam from './screens/dashboard/directTeam';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <DirectTeam />;
+  return <StructureTeam />;
 };
 
 export default App;
