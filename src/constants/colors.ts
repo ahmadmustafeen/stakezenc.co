@@ -7,5 +7,7 @@ export const bgPrimary = '#0f051d';
 
 export const darkerPrimary = '#1b1229';
 
+export const lighterBackground = '#433e4c';
+
 export const white = '#fff';
 export const black = '#000';

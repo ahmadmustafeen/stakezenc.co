@@ -1,8 +1,8 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import React from 'react';
 import {AppText, Header} from '../../../components';
-import {headerBlue} from '../../../constants';
 import {InfoGraphicContainer} from '../../../components/InfoGraphicContainer';
+import {styles} from './style';
 
 const HomeScreen = () => {
   return (
@@ -41,23 +41,5 @@ const HomeScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: headerBlue,
-    flex: 1,
-  },
-  introContainer: {
-    marginTop: 10,
-    paddingBottom: 20,
-    width: '90%',
-    alignSelf: 'center',
-  },
-  infoContainer: {
-    flexDirection: 'row',
-    width: '90%',
-    alignSelf: 'center',
-  },
-});
 
 export default HomeScreen;
