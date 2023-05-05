@@ -18,10 +18,7 @@ const StructureTeam = () => {
             flexDirection: 'row',
             alignItems: 'center',
           }}>
-          <AntDesignIcon
-            name="pluscircle"
-            style={[{color: white, marginRight: 10, fontSize: 18}]}
-          />
+          <AntDesignIcon name="pluscircle" style={styles.icon} />
           <AppText secondary text children="AhmadMustafeen" />
         </View>
       </View>
