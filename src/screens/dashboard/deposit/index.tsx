@@ -58,11 +58,7 @@ const DepositScreen = () => {
               bold
             />
           </View>
-          <View
-            style={[
-              styles.verticalPadding,
-              {width: '90%', alignSelf: 'center'},
-            ]}>
+          <View style={[styles.verticalPadding, styles.additionalText]}>
             <AppText
               children="*Pay Exact Amount And Enter Transaction Id Here"
               white

@@ -62,4 +62,8 @@ export const styles = StyleSheet.create({
   appButton: {
     borderRadius: 5,
   },
+  additionalText: {
+    width: '90%',
+    alignSelf: 'center',
+  },
 });
