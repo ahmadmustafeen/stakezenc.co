@@ -3,7 +3,6 @@ import React from 'react';
 import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import {white} from '../../../constants';
 
 const StructureTeam = () => {
   return (
@@ -13,11 +12,7 @@ const StructureTeam = () => {
         <AppText children="Structure" largerHeading white />
       </View>
       <View style={styles.teamContainer}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
+        <View style={styles.itemContainer}>
           <AntDesignIcon name="pluscircle" style={styles.icon} />
           <AppText secondary text children="AhmadMustafeen" />
         </View>

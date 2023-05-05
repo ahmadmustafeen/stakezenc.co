@@ -22,6 +22,10 @@ export const styles = StyleSheet.create({
     paddingTop: 20,
     alignSelf: 'center',
   },
+  itemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   icon: {
     color: white,
     marginRight: 10,
