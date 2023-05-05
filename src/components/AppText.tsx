@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {primaryBlue, primaryText} from '../constants';
+import {pinkColor, primaryBlue, primaryText} from '../constants';
 import {AppTextProps} from '../types';
 
 const AppText = (props: AppTextProps) => {
@@ -10,10 +10,13 @@ const AppText = (props: AppTextProps) => {
     white = false,
     black = true,
     text,
+    pink,
     heading,
     largerHeading,
     smallText,
     primary,
+    right,
+    left,
     uppercase,
     secondary,
     underline,
@@ -29,6 +32,7 @@ const AppText = (props: AppTextProps) => {
           black && {color: 'black'},
           white && {color: 'white'},
           primary && {color: primaryBlue},
+          pink && {color: pinkColor},
           secondary && {color: primaryText},
           largerHeading && {fontSize: 32},
           heading && {fontSize: 24},
@@ -38,6 +42,8 @@ const AppText = (props: AppTextProps) => {
           bold && {fontWeight: 'bold'},
           semibold && {fontWeight: '600'},
           center && {textAlign: 'center'},
+          right && {textAlign: 'right'},
+          left && {textAlign: 'left'},
           uppercase && {textTransform: 'uppercase'},
         ]}>
         {children}

@@ -1,6 +1,7 @@
 import React from 'react';
+import DepositScreen from './screens/dashboard/deposit';
 // import DirectTeam from './screens/dashboard/directTeam';
-import StructureTeam from './screens/dashboard/structureTeam';
+// import StructureTeam from './screens/dashboard/structureTeam';
 // import Navigator from './navigation';
 // import HomeScreen from './screens/dashboard/home';
 // import ProfileScreen from './screens/dashboard/profile';
@@ -12,7 +13,7 @@ import StructureTeam from './screens/dashboard/structureTeam';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <StructureTeam />;
+  return <DepositScreen />;
 };
 
 export default App;
