@@ -1,6 +1,7 @@
 import React from 'react';
+import BonusSummaryScreen from './screens/dashboard/summaryBonus';
 // import DepositScreen from './screens/dashboard/deposit';
-import DepositSummaryScreen from './screens/dashboard/summaryDeposit';
+// import DepositSummaryScreen from './screens/dashboard/summaryDeposit';
 // import DirectTeam from './screens/dashboard/directTeam';
 // import StructureTeam from './screens/dashboard/structureTeam';
 // import Navigator from './navigation';
@@ -14,7 +15,7 @@ import DepositSummaryScreen from './screens/dashboard/summaryDeposit';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <DepositSummaryScreen />;
+  return <BonusSummaryScreen />;
 };
 
 export default App;
