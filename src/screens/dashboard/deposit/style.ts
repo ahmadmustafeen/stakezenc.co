@@ -45,7 +45,6 @@ export const styles = StyleSheet.create({
     width: 200,
     borderRadius: 4,
     height: 200,
-    backgroundColor: 'white',
     alignSelf: 'center',
   },
   addressContainer: {

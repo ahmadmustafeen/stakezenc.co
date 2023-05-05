@@ -1,4 +1,4 @@
-import {ScrollView, View} from 'react-native';
+import {Image, ScrollView, View} from 'react-native';
 import React from 'react';
 import {AppButton, AppText, Header} from '../../../components';
 import {styles} from './style';
@@ -36,7 +36,12 @@ const DepositScreen = () => {
               text
             />
           </View>
-          <View style={styles.qrContainer} />
+          <View style={styles.qrContainer}>
+            <Image
+              source={require('../../../assets/images/qr.png')}
+              style={styles.qrContainer}
+            />
+          </View>
           <View style={styles.verticalPadding}>
             <AppText children="Address" white heading center bold />
             <View style={styles.addressContainer}>
