@@ -1,5 +1,6 @@
 import React from 'react';
-import CashWalletSummaryScreen from './screens/dashboard/cashWalletSummary';
+import SummaryWithdrawalScreen from './screens/dashboard/summaryWithdrawal';
+// import CashWalletSummaryScreen from './screens/dashboard/cashWalletSummary';
 // import BonusSummaryScreen from './screens/dashboard/summaryBonus';
 // import LevelSummaryScreen from './screens/dashboard/summaryLevel';
 // import ROISummaryScreen from './screens/dashboard/summaryROI';
@@ -18,7 +19,7 @@ import CashWalletSummaryScreen from './screens/dashboard/cashWalletSummary';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <CashWalletSummaryScreen />;
+  return <SummaryWithdrawalScreen />;
 };
 
 export default App;
