@@ -5,11 +5,15 @@ import {CustomDrawerContent} from '../components/DrawerScreen';
 import {
   BONUS_SUMMARY_SCREEN,
   CASH_WALLET_SUMMARY_SCREEN,
+  CHANGE_ADDRESS_SCREEN,
+  CHANGE_PASSWORD_SCREEN,
   DEPOSIT_SCREEN,
   DEPOSIT_SUMMARY_SCREEN,
+  EDIT_PROFILE_SCREEN,
   HOME_SCREEN,
   LEVEL_REPORT_SUMMARY_SCREEN,
   NEW_SUPPORT_SCREEN,
+  PROFILE_SCREEN,
   REFERRAL_TEAM_SCREEN,
   ROI_INCOME_SUMMARY_SCREEN,
   SUPPORT_SUMMARY_SCREEN,
@@ -28,6 +32,10 @@ import CashWalletSummaryScreen from '../screens/dashboard/cashWalletSummary';
 import WalletSummaryScreen from '../screens/dashboard/summaryWithdrawal';
 import SupportFormScreen from '../screens/dashboard/supportForm';
 import SupportSummaryScreen from '../screens/dashboard/summarySupport';
+import ProfileScreen from '../screens/dashboard/profile';
+import EditProfile from '../screens/dashboard/editProfile';
+import ChangeAddressScreen from '../screens/dashboard/changeAddress';
+import ChangePasswordScreen from '../screens/dashboard/changePassword';
 
 const Drawer = createDrawerNavigator();
 
@@ -73,6 +81,16 @@ const DrawerNavigator = () => {
         <Drawer.Screen
           name={SUPPORT_SUMMARY_SCREEN}
           component={SupportSummaryScreen}
+        />
+        <Drawer.Screen name={PROFILE_SCREEN} component={ProfileScreen} />
+        <Drawer.Screen name={EDIT_PROFILE_SCREEN} component={EditProfile} />
+        <Drawer.Screen
+          name={CHANGE_ADDRESS_SCREEN}
+          component={ChangeAddressScreen}
+        />
+        <Drawer.Screen
+          name={CHANGE_PASSWORD_SCREEN}
+          component={ChangePasswordScreen}
         />
       </Drawer.Navigator>
     </NavigationContainer>

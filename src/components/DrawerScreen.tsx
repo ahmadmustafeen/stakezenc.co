@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import {bgPrimary, lighterBackground, white} from '../constants';
 import {AppText} from './AppText';
@@ -8,11 +14,15 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import {
   BONUS_SUMMARY_SCREEN,
   CASH_WALLET_SUMMARY_SCREEN,
+  CHANGE_ADDRESS_SCREEN,
+  CHANGE_PASSWORD_SCREEN,
   DEPOSIT_SCREEN,
   DEPOSIT_SUMMARY_SCREEN,
+  EDIT_PROFILE_SCREEN,
   HOME_SCREEN,
   LEVEL_REPORT_SUMMARY_SCREEN,
   NEW_SUPPORT_SCREEN,
+  PROFILE_SCREEN,
   REFERRAL_TEAM_SCREEN,
   ROI_INCOME_SUMMARY_SCREEN,
   SUPPORT_SUMMARY_SCREEN,
@@ -191,6 +201,66 @@ const NetworkNavigation = (props: any) => {
     </>
   );
 };
+const ProfileNavigation = (props: any) => {
+  const [isOpened, setIsOpened] = useState(false);
+
+  return (
+    <>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={styles.navigationItemContainer}
+        onPress={() => setIsOpened(opened => !opened)}>
+        <AppText white bold text>
+          Profile
+        </AppText>
+        <AntDesignIcon
+          name={isOpened ? 'arrowup' : 'arrowdown'}
+          style={styles.icon}
+        />
+      </TouchableOpacity>
+      {isOpened ? (
+        <View style={styles.innerContainer}>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(PROFILE_SCREEN)}>
+            <AppText white bold text>
+              View Profile
+            </AppText>
+            <AntDesignIcon name="arrowright" style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(EDIT_PROFILE_SCREEN)}>
+            <AppText white bold text>
+              Edit Profile
+            </AppText>
+            <AntDesignIcon name="arrowright" style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(CHANGE_PASSWORD_SCREEN)}>
+            <AppText white bold text>
+              Change Password
+            </AppText>
+            <AntDesignIcon name="arrowright" style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(CHANGE_ADDRESS_SCREEN)}>
+            <AppText white bold text>
+              Change Address
+            </AppText>
+            <AntDesignIcon name="arrowright" style={styles.icon} />
+          </TouchableOpacity>
+        </View>
+      ) : null}
+    </>
+  );
+};
 
 export const CustomDrawerContent = (props: any) => {
   return (
@@ -201,7 +271,9 @@ export const CustomDrawerContent = (props: any) => {
           style={styles.logo}
         />
       </View>
-      <View style={styles.navigationContainer}>
+      <ScrollView style={styles.navigationContainer}>
+        <ProfileNavigation {...props} />
+
         <TouchableOpacity
           style={styles.navigationItemContainer}
           activeOpacity={0.7}
@@ -240,7 +312,7 @@ export const CustomDrawerContent = (props: any) => {
           </AppText>
           <AntDesignIcon name="logout" style={styles.icon} />
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };

@@ -4,7 +4,7 @@ import {styles} from './style';
 import {AppButton, AppText, Header} from '../../../components';
 import AppInput from '../../../components/AppInput';
 
-const ChangeProfileScreen = (props: any) => {
+const ChangePasswordScreen = (props: any) => {
   return (
     <View style={styles.container}>
       <Header {...props} />
@@ -33,4 +33,4 @@ const ChangeProfileScreen = (props: any) => {
   );
 };
 
-export default ChangeProfileScreen;
+export default ChangePasswordScreen;
