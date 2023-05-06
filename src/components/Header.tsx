@@ -7,6 +7,7 @@ import {AppButton} from './AppButton';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 // @ts-ignore
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import {DEPOSIT_SCREEN, PROFILE_SCREEN} from '../constants/screen';
 
 const Header = (props: any) => {
   return (
@@ -19,26 +20,26 @@ const Header = (props: any) => {
           <EntypoIcon name="menu" style={[styles.menuIcon, {color: white}]} />
         </TouchableOpacity>
       </View>
-      <View style={styles.addFundsContainer}>
+      <TouchableOpacity
+        style={styles.addFundsContainer}
+        activeOpacity={0.7}
+        onPress={() => props.navigation.navigate(DEPOSIT_SCREEN)}>
         <AppButton
           label="add funds"
           uppercase
+          onPress={() => props.navigation.navigate(DEPOSIT_SCREEN)}
           containerStyle={styles.customAddFundsContainer}
           text
           bgColor={headerBlue}
           smallText={false}
         />
-      </View>
+      </TouchableOpacity>
       <View style={styles.profileContainer}>
-        <View style={styles.smallIconContainer}>
-          <FontAwesomeIcon
-            name="bell-o"
-            style={[styles.menuIcon, {color: white}]}
-          />
-        </View>
-        <View style={styles.iconContainer}>
+        <TouchableOpacity
+          style={styles.iconContainer}
+          onPress={() => props.navigation.navigate(PROFILE_SCREEN)}>
           <FontAwesomeIcon name="user-o" style={styles.menuIcon} />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
