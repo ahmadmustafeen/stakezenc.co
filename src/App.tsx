@@ -1,5 +1,6 @@
 import React from 'react';
 import ChangeAddressScreen from './screens/dashboard/changeAddress';
+import SupportFormScreen from './screens/dashboard/supportForm';
 
 // import ChangeProfileScreen from './screens/dashboard/changePassword';
 // import EditProfile from './screens/dashboard/editProfile';
@@ -23,7 +24,7 @@ import ChangeAddressScreen from './screens/dashboard/changeAddress';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <ChangeAddressScreen />;
+  return <SupportFormScreen />;
 };
 
 export default App;
