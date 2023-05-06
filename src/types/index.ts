@@ -22,6 +22,7 @@ export interface AppTextProps {
   children: string;
   white?: boolean;
   black?: boolean;
+  pink?: boolean;
   text?: boolean;
   heading?: boolean;
   largerHeading?: boolean;
@@ -29,6 +30,8 @@ export interface AppTextProps {
   bold?: boolean;
   semibold?: boolean;
   center?: boolean;
+  right?: boolean;
+  left?: boolean;
   underline?: boolean;
   uppercase?: boolean;
   primary?: boolean;

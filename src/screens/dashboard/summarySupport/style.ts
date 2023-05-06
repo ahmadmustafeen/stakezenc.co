@@ -6,15 +6,15 @@ export const styles = StyleSheet.create({
     backgroundColor: headerBlue,
     flex: 1,
   },
-  introContainer: {
-    marginTop: 10,
-    paddingBottom: 20,
+  infoContainer: {
+    paddingVertical: 15,
+    flexDirection: 'row',
     width: '90%',
     alignSelf: 'center',
   },
-  infoContainer: {
-    flexDirection: 'row',
+  headingContainer: {
     width: '90%',
+    paddingTop: 10,
     alignSelf: 'center',
   },
 });

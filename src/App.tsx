@@ -1,6 +1,20 @@
 import React from 'react';
+import ChangeAddressScreen from './screens/dashboard/changeAddress';
+
+// import ChangeProfileScreen from './screens/dashboard/changePassword';
+// import EditProfile from './screens/dashboard/editProfile';
+// import SummaryWithdrawalScreen from './screens/dashboard/summaryWithdrawal';
+// import CashWalletSummaryScreen from './screens/dashboard/cashWalletSummary';
+// import BonusSummaryScreen from './screens/dashboard/summaryBonus';
+// import LevelSummaryScreen from './screens/dashboard/summaryLevel';
+// import ROISummaryScreen from './screens/dashboard/summaryROI';
+// import DepositScreen from './screens/dashboard/deposit';
+// import DepositSummaryScreen from './screens/dashboard/summaryDeposit';
+// import DirectTeam from './screens/dashboard/directTeam';
+// import StructureTeam from './screens/dashboard/structureTeam';
 // import Navigator from './navigation';
-import HomeScreen from './screens/dashboard/home';
+// import HomeScreen from './screens/dashboard/home';
+// import ProfileScreen from './screens/dashboard/profile';
 // import SuccessScreen from './screens/auth/success';
 // import OTPScreen from './screens/auth/otp';
 // import ForgotPassword from './screens/auth/forgotpassword';
@@ -9,7 +23,7 @@ import HomeScreen from './screens/dashboard/home';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <HomeScreen />;
+  return <ChangeAddressScreen />;
 };
 
 export default App;
