@@ -1,6 +1,7 @@
 import React from 'react';
+import ChangeAddressScreen from './screens/dashboard/changeAddress';
 
-import ChangeProfileScreen from './screens/dashboard/changePassword';
+// import ChangeProfileScreen from './screens/dashboard/changePassword';
 // import EditProfile from './screens/dashboard/editProfile';
 // import SummaryWithdrawalScreen from './screens/dashboard/summaryWithdrawal';
 // import CashWalletSummaryScreen from './screens/dashboard/cashWalletSummary';
@@ -22,7 +23,7 @@ import ChangeProfileScreen from './screens/dashboard/changePassword';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <ChangeProfileScreen />;
+  return <ChangeAddressScreen />;
 };
 
 export default App;
