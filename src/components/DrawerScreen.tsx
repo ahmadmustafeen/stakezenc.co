@@ -5,9 +5,22 @@ import {bgPrimary, lighterBackground, white} from '../constants';
 import {AppText} from './AppText';
 // @ts-ignore
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import {DEPOSIT_SCREEN, HOME_SCREEN} from '../constants/screen';
+import {
+  BONUS_SUMMARY_SCREEN,
+  CASH_WALLET_SUMMARY_SCREEN,
+  DEPOSIT_SCREEN,
+  DEPOSIT_SUMMARY_SCREEN,
+  HOME_SCREEN,
+  LEVEL_REPORT_SUMMARY_SCREEN,
+  NEW_SUPPORT_SCREEN,
+  REFERRAL_TEAM_SCREEN,
+  ROI_INCOME_SUMMARY_SCREEN,
+  SUPPORT_SUMMARY_SCREEN,
+  TREE_STRUCTURE_SCREEN,
+  WITHDRAWAL_SUMMARY_SCREEN,
+} from '../constants/screen';
 
-const SummaryNavigation = () => {
+const SummaryNavigation = (props: any) => {
   const [isOpened, setIsOpened] = useState(false);
   return (
     <>
@@ -25,49 +38,75 @@ const SummaryNavigation = () => {
       </TouchableOpacity>
       {isOpened ? (
         <View style={styles.innerContainer}>
-          <View style={styles.navigationItemContainer}>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(DEPOSIT_SUMMARY_SCREEN)}>
             <AppText white bold text>
               Deposit Summary
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
-          <View style={styles.navigationItemContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(BONUS_SUMMARY_SCREEN)}>
             <AppText white bold text>
               Bonuses
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
-          <View style={styles.navigationItemContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() =>
+              props.navigation.navigate(LEVEL_REPORT_SUMMARY_SCREEN)
+            }>
             <AppText white bold text>
               Level Report
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
-          <View style={styles.navigationItemContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() =>
+              props.navigation.navigate(ROI_INCOME_SUMMARY_SCREEN)
+            }>
             <AppText white bold text>
               ROI Income
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
-          <View style={styles.navigationItemContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() =>
+              props.navigation.navigate(CASH_WALLET_SUMMARY_SCREEN)
+            }>
             <AppText white bold text>
               Cash Wallet
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
-          <View style={styles.navigationItemContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() =>
+              props.navigation.navigate(WITHDRAWAL_SUMMARY_SCREEN)
+            }>
             <AppText white bold text>
               Withdrawals
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
+          </TouchableOpacity>
         </View>
       ) : null}
     </>
   );
 };
 
-const SupportNavigation = () => {
+const SupportNavigation = (props: any) => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
@@ -86,25 +125,31 @@ const SupportNavigation = () => {
       </TouchableOpacity>
       {isOpened ? (
         <View style={styles.innerContainer}>
-          <View style={styles.navigationItemContainer}>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(NEW_SUPPORT_SCREEN)}>
             <AppText white bold text>
               Submit Ticket
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
-          <View style={styles.navigationItemContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(SUPPORT_SUMMARY_SCREEN)}>
             <AppText white bold text>
               Summary
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
+          </TouchableOpacity>
         </View>
       ) : null}
     </>
   );
 };
 
-const NetworkNavigation = () => {
+const NetworkNavigation = (props: any) => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
@@ -123,18 +168,24 @@ const NetworkNavigation = () => {
       </TouchableOpacity>
       {isOpened ? (
         <View style={styles.innerContainer}>
-          <View style={styles.navigationItemContainer}>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(REFERRAL_TEAM_SCREEN)}>
             <AppText white bold text>
               Referral Team
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
-          <View style={styles.navigationItemContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navigationItemContainer}
+            activeOpacity={0.7}
+            onPress={() => props.navigation.navigate(TREE_STRUCTURE_SCREEN)}>
             <AppText white bold text>
               Tree Structure
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </View>
+          </TouchableOpacity>
         </View>
       ) : null}
     </>
@@ -179,9 +230,9 @@ export const CustomDrawerContent = (props: any) => {
           <AntDesignIcon name="arrowright" style={styles.icon} />
         </TouchableOpacity>
 
-        <NetworkNavigation />
-        <SummaryNavigation />
-        <SupportNavigation />
+        <NetworkNavigation {...props} />
+        <SummaryNavigation {...props} />
+        <SupportNavigation {...props} />
 
         <View style={styles.navigationItemContainer}>
           <AppText white bold text>
