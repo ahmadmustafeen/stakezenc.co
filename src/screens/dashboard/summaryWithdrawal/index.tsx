@@ -4,7 +4,7 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import WithdrawalComponent from '../../../components/WithdrawalComponent';
 
-const DepositSummaryScreen = () => {
+const WalletSummaryScreen = () => {
   return (
     <View style={styles.container}>
       <Header />
@@ -47,4 +47,4 @@ const DepositSummaryScreen = () => {
   );
 };
 
-export default DepositSummaryScreen;
+export default WalletSummaryScreen;

@@ -1,6 +1,6 @@
 import React from 'react';
-import ChangeAddressScreen from './screens/dashboard/changeAddress';
-import SupportFormScreen from './screens/dashboard/supportForm';
+// import ChangeAddressScreen from './screens/dashboard/changeAddress';
+// import SupportFormScreen from './screens/dashboard/supportForm';
 
 // import ChangeProfileScreen from './screens/dashboard/changePassword';
 // import EditProfile from './screens/dashboard/editProfile';
@@ -22,9 +22,10 @@ import SupportFormScreen from './screens/dashboard/supportForm';
 // import ResetPassword from './screens/auth/resetpassword';
 // import Login from './screens/auth/login';
 // import Register from './screens/auth/register';
+import Drawer from './navigation/drawernavigation';
 
 const App = () => {
-  return <SupportFormScreen />;
+  return <Drawer />;
 };
 
 export default App;
