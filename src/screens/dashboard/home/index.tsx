@@ -4,10 +4,10 @@ import {AppText, Header} from '../../../components';
 import {InfoGraphicContainer} from '../../../components/InfoGraphicContainer';
 import {styles} from './style';
 
-const HomeScreen = () => {
+const HomeScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.introContainer}>
           <AppText white largerHeading>

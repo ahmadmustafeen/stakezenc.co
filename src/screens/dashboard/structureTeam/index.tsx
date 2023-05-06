@@ -2,12 +2,14 @@ import {View} from 'react-native';
 import React from 'react';
 import {styles} from './style';
 import {AppText, Header} from '../../../components';
+
+//@ts-ignore
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
-const StructureTeam = () => {
+const StructureTeam = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <View style={styles.headingContainer}>
         <AppText children="Structure" largerHeading white />
       </View>

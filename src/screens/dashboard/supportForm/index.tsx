@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppButton, AppText, Header} from '../../../components';
 import AppInput from '../../../components/AppInput';
 
-const SupportFormScreen = () => {
+const SupportFormScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <View style={styles.headingContainer}>
         <AppText children="Support" largerHeading white />
       </View>

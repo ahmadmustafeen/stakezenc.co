@@ -3,10 +3,10 @@ import React from 'react';
 import {styles} from './style';
 import {AppText, Header} from '../../../components';
 
-const ProfileScreen = () => {
+const ProfileScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
 
       <ScrollView>
         <View style={styles.profileContainer}>

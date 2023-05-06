@@ -3,14 +3,18 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {primaryBlue, headerBlue, white} from '../constants';
 import {AppButton} from './AppButton';
+// @ts-ignore
 import EntypoIcon from 'react-native-vector-icons/Entypo';
+// @ts-ignore
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
-const Header = () => {
+const Header = (props: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.menuIconContainer}>
         <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() => props.navigation.openDrawer()}
           style={[styles.iconContainer, {backgroundColor: '#4d0d74'}]}>
           <EntypoIcon name="menu" style={[styles.menuIcon, {color: white}]} />
         </TouchableOpacity>

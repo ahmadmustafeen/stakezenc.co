@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import WithdrawalComponent from '../../../components/WithdrawalComponent';
 
-const WalletSummaryScreen = () => {
+const WalletSummaryScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.headingContainer}>
           <AppText children="Withdrawal Summary" largerHeading white />
