@@ -1,5 +1,7 @@
 import React from 'react';
-import EditProfile from './screens/dashboard/editProfile';
+
+import ChangeProfileScreen from './screens/dashboard/changePassword';
+// import EditProfile from './screens/dashboard/editProfile';
 // import SummaryWithdrawalScreen from './screens/dashboard/summaryWithdrawal';
 // import CashWalletSummaryScreen from './screens/dashboard/cashWalletSummary';
 // import BonusSummaryScreen from './screens/dashboard/summaryBonus';
@@ -20,7 +22,7 @@ import EditProfile from './screens/dashboard/editProfile';
 // import Register from './screens/auth/register';
 
 const App = () => {
-  return <EditProfile />;
+  return <ChangeProfileScreen />;
 };
 
 export default App;
