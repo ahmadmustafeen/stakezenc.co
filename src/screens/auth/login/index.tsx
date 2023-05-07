@@ -100,6 +100,7 @@ const Login = (props: any) => {
       'Login Success',
       'This will redirect to the dashboard if auth is successfull',
     );
+    props.navigation.navigate('drawer');
   };
 
   const navigateToForgotPassword = () =>

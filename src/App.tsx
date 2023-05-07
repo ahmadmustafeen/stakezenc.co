@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 // import ChangeAddressScreen from './screens/dashboard/changeAddress';
 // import SupportFormScreen from './screens/dashboard/supportForm';
 
@@ -23,8 +23,13 @@ import React from 'react';
 // import Login from './screens/auth/login';
 // import Register from './screens/auth/register';
 import Drawer from './navigation/drawernavigation';
+import RNBootSplash from 'react-native-bootsplash';
+// import Navigator from './navigation';
 
 const App = () => {
+  useEffect(() => {
+    RNBootSplash.hide({fade: true, duration: 500});
+  }, []);
   return <Drawer />;
 };
 
