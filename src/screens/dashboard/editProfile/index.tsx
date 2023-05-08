@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppButton, AppText, Header} from '../../../components';
 import AppInput from '../../../components/AppInput';
 
-const EditProfile = () => {
+const EditProfile = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView style={styles.formContainer}>
         <View style={styles.labelContainer}>
           <AppText children="Full Name" white text />

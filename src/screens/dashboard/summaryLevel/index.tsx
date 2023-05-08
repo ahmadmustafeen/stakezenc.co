@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import LevelComponent from '../../../components/LevelComponent';
 
-const LevelSummaryScreen = () => {
+const LevelSummaryScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.headingContainer}>
           <AppText children="Level Summary" largerHeading white />

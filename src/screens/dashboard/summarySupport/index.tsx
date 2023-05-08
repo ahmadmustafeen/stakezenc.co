@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import SupportComponent from '../../../components/SupportComponent';
 
-const SupportSummaryScreen = () => {
+const SupportSummaryScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.headingContainer}>
           <AppText children="Support Summary" largerHeading white />

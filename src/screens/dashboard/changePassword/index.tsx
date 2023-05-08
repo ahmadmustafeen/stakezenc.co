@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppButton, AppText, Header} from '../../../components';
 import AppInput from '../../../components/AppInput';
 
-const ChangeProfileScreen = () => {
+const ChangePasswordScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView style={styles.formContainer}>
         <View style={styles.labelContainer}>
           <AppText children="Current Password" white text />
@@ -33,4 +33,4 @@ const ChangeProfileScreen = () => {
   );
 };
 
-export default ChangeProfileScreen;
+export default ChangePasswordScreen;

@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import ROIComponent from '../../../components/ROIComponent';
 
-const ROISummaryScreen = () => {
+const ROISummaryScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.headingContainer}>
           <AppText children="ROI Wallet Summary" largerHeading white />

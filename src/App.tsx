@@ -1,5 +1,6 @@
-import React from 'react';
-import ChangeAddressScreen from './screens/dashboard/changeAddress';
+import React, {useEffect} from 'react';
+// import ChangeAddressScreen from './screens/dashboard/changeAddress';
+// import SupportFormScreen from './screens/dashboard/supportForm';
 
 // import ChangeProfileScreen from './screens/dashboard/changePassword';
 // import EditProfile from './screens/dashboard/editProfile';
@@ -21,9 +22,15 @@ import ChangeAddressScreen from './screens/dashboard/changeAddress';
 // import ResetPassword from './screens/auth/resetpassword';
 // import Login from './screens/auth/login';
 // import Register from './screens/auth/register';
+import Drawer from './navigation/drawernavigation';
+import RNBootSplash from 'react-native-bootsplash';
+// import Navigator from './navigation';
 
 const App = () => {
-  return <ChangeAddressScreen />;
+  useEffect(() => {
+    RNBootSplash.hide({fade: true, duration: 500});
+  }, []);
+  return <Drawer />;
 };
 
 export default App;

@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import CashWalletComponent from '../../../components/CashWalletComponent';
 
-const CashWalletSummaryScreen = () => {
+const CashWalletSummaryScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.headingContainer}>
           <AppText children="Cash Wallet Summary" largerHeading white />

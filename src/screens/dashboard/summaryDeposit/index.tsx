@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import DepositComponent from '../../../components/DepositComponent';
 
-const DepositSummaryScreen = () => {
+const DepositSummaryScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.headingContainer}>
           <AppText children="Deposit Summary" largerHeading white />

@@ -4,10 +4,10 @@ import {styles} from './style';
 import {AppText, Header} from '../../../components';
 import BonusComponent from '../../../components/BonusComponent';
 
-const BonusSummaryScreen = () => {
+const BonusSummaryScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
       <ScrollView>
         <View style={styles.headingContainer}>
           <AppText children="Bonus Summary" largerHeading white />

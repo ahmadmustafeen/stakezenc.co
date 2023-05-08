@@ -1,12 +1,13 @@
+/* eslint-disable react-native/no-inline-styles */
 import {Image, ScrollView, View} from 'react-native';
 import React from 'react';
 import {styles} from './style';
 import {AppText, Header} from '../../../components';
 
-const ProfileScreen = () => {
+const ProfileScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header {...props} />
 
       <ScrollView>
         <View style={styles.profileContainer}>
@@ -20,26 +21,29 @@ const ProfileScreen = () => {
           <View style={styles.infoContainer}>
             <View style={styles.info}>
               <AppText white>Account status</AppText>
-              <View style={styles.statusContainer}>
-                <AppText white>Account status</AppText>
+              <View
+                style={[styles.statusContainer, {backgroundColor: '#f6c23e'}]}>
+                <AppText white>Pending</AppText>
               </View>
             </View>
             <View style={styles.info}>
-              <AppText white>Account status</AppText>
-              <View style={styles.statusContainer}>
-                <AppText white>Account status</AppText>
+              <AppText white>KYC status</AppText>
+              <View
+                style={[styles.statusContainer, {backgroundColor: '#e74a3b'}]}>
+                <AppText white>Unverified</AppText>
               </View>
             </View>
 
             <View style={styles.info}>
               <AppText white>Account status</AppText>
-              <View style={styles.statusContainer}>
-                <AppText white>Account status</AppText>
+              <View
+                style={[styles.statusContainer, {backgroundColor: '#36b9cc'}]}>
+                <AppText white>No Package</AppText>
               </View>
             </View>
             <View style={styles.info}>
               <AppText white>Account status</AppText>
-              <AppText text white>
+              <AppText text secondary>
                 $ 0
               </AppText>
             </View>
