@@ -106,11 +106,10 @@ const Login = (props: any) => {
     setContextData((contextData: any) => ({...contextData, apiLoader: true}));
     axios
       .post(`${BASE_URL}/auth/login`, state)
-      // @ts-ignore
-      .then(data => {
-        if (data) {
+      .then((res: any) => {
+        if (res) {
           // @ts-ignore
-          setContextData({isLoggedIn: true, user: data.data});
+          setContextData({isLoggedIn: true, user: res.data});
         }
       })
       .catch(err => {
