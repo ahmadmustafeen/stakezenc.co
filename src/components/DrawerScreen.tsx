@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {bgPrimary, lighterBackground, white} from '../constants';
 import {AppText} from './AppText';
 // @ts-ignore
@@ -29,6 +29,7 @@ import {
   TREE_STRUCTURE_SCREEN,
   WITHDRAWAL_SUMMARY_SCREEN,
 } from '../constants/screen';
+import AuthContext from '../context/authContext';
 
 const SummaryNavigation = (props: any) => {
   const [isOpened, setIsOpened] = useState(false);
@@ -263,6 +264,10 @@ const ProfileNavigation = (props: any) => {
 };
 
 export const CustomDrawerContent = (props: any) => {
+  const {data, setContextData} = useContext(AuthContext);
+  const logout = () => {
+    setContextData({isLoggedIn: false, user: null, apiLoader: false});
+  };
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -306,12 +311,14 @@ export const CustomDrawerContent = (props: any) => {
         <SummaryNavigation {...props} />
         <SupportNavigation {...props} />
 
-        <View style={styles.navigationItemContainer}>
+        <TouchableOpacity
+          style={styles.navigationItemContainer}
+          onPress={logout}>
           <AppText white bold text>
             Logout
           </AppText>
           <AntDesignIcon name="logout" style={styles.icon} />
-        </View>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
