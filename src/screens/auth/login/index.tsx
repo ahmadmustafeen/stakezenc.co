@@ -1,7 +1,7 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import {Alert, ScrollView, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {secondaryBlue} from '../../../constants';
 import {
   AppHeader,
@@ -16,6 +16,7 @@ import {
 } from '../../../constants/screen';
 import {AuthHeaderProps} from '../../../types';
 import {AlertPrompt} from '../../../components/AlertPrompt';
+import AuthContext from '../../../context/authContext';
 
 const AuthHeaderTail = () => {
   return (
@@ -68,6 +69,8 @@ const Login = (props: any) => {
     message: '',
   });
 
+  const {setContextData} = useContext(AuthContext);
+
   const handleChange = (key: string, value: string | number) =>
     setState({...state, [key]: value});
 
@@ -100,7 +103,7 @@ const Login = (props: any) => {
       'Login Success',
       'This will redirect to the dashboard if auth is successfull',
     );
-    props.navigation.navigate('drawer');
+    setContextData({isLoggedIn: true});
   };
 
   const navigateToForgotPassword = () =>
