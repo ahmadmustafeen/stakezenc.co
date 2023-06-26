@@ -11,6 +11,7 @@ export interface AppButtonProps {
   bgColor?: string;
   heading?: boolean;
   containerStyle?: ViewStyle;
+  loader?: boolean;
 }
 export interface AppHeaderProps {
   title: string;

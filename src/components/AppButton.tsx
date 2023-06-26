@@ -16,10 +16,12 @@ const AppButton = (props: AppButtonProps) => {
     smallText = true,
     text,
     heading,
+    loader = false,
     containerStyle,
   } = props;
   return (
     <TouchableOpacity
+      disabled={!!loader}
       onPress={onPress}
       style={[
         styles.container,
@@ -36,7 +38,7 @@ const AppButton = (props: AppButtonProps) => {
         text={text}
         heading={heading}
         uppercase={uppercase}>
-        {label}
+        {loader ? 'Wait' : label}
       </AppText>
     </TouchableOpacity>
   );

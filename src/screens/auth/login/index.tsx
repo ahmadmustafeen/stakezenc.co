@@ -1,8 +1,8 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import {Alert, ScrollView, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
-import {secondaryBlue} from '../../../constants';
+import React, {useContext, useState} from 'react';
+import {BASE_URL, secondaryBlue} from '../../../constants';
 import {
   AppHeader,
   AppText,
@@ -16,6 +16,8 @@ import {
 } from '../../../constants/screen';
 import {AuthHeaderProps} from '../../../types';
 import {AlertPrompt} from '../../../components/AlertPrompt';
+import AuthContext from '../../../context/authContext';
+import axios from 'axios';
 
 const AuthHeaderTail = () => {
   return (
@@ -61,12 +63,17 @@ const AuthHeader = (props: AuthHeaderProps) => {
 };
 
 const Login = (props: any) => {
-  const [state, setState] = useState({username: '', password: ''});
+  const [state, setState] = useState({
+    username: __DEV__ ? 'ahmad_mustafeen' : '',
+    password: __DEV__ ? 'ahmad_mustafeen' : '',
+  });
   const [error, setError] = useState({
     hasError: false,
     title: '',
     message: '',
   });
+
+  const {data, setContextData} = useContext(AuthContext);
 
   const handleChange = (key: string, value: string | number) =>
     setState({...state, [key]: value});
@@ -95,12 +102,27 @@ const Login = (props: any) => {
     if (!validation()) {
       return false;
     }
-
-    Alert.alert(
-      'Login Success',
-      'This will redirect to the dashboard if auth is successfull',
-    );
-    props.navigation.navigate('drawer');
+    // @ts-ignore
+    setContextData((contextData: any) => ({...contextData, apiLoader: true}));
+    axios
+      .post(`${BASE_URL}/auth/login`, state)
+      .then((res: any) => {
+        if (res) {
+          // @ts-ignore
+          setContextData({isLoggedIn: true, user: res.data});
+        }
+      })
+      .catch(err => {
+        console.log({err: err.message});
+        Alert.alert('Login Failed', 'SERVER DOWN');
+      })
+      .finally(() => {
+        // @ts-ignore
+        setContextData((contextData: any) => ({
+          ...contextData,
+          apiLoader: false,
+        }));
+      });
   };
 
   const navigateToForgotPassword = () =>
@@ -143,7 +165,12 @@ const Login = (props: any) => {
             />
           </View>
           <View style={styles.buttonContainer}>
-            <AppButton label="Login" uppercase onPress={onLogin} />
+            <AppButton
+              label="Login"
+              uppercase
+              onPress={onLogin}
+              loader={data?.apiLoader}
+            />
           </View>
           <TouchableOpacity
             style={styles.forgotContainer}

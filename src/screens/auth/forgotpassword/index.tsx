@@ -2,8 +2,8 @@
 /* eslint-disable react/self-closing-comp */
 
 import {Alert, ScrollView, View} from 'react-native';
-import React, {useState} from 'react';
-import {secondaryBlue} from '../../../constants';
+import React, {useContext, useState} from 'react';
+import {BASE_URL, secondaryBlue} from '../../../constants';
 import {
   AppHeader,
   AppText,
@@ -11,8 +11,10 @@ import {
   InputWithLabel,
 } from '../../../components';
 import {styles} from './style';
-import {LOGIN_SCREEN, OTP_SCREEN} from '../../../constants/screen';
+import {LOGIN_SCREEN} from '../../../constants/screen';
 import {AlertPrompt} from '../../../components/AlertPrompt';
+import AuthContext from '../../../context/authContext';
+import axios from 'axios';
 
 const AuthHeaderTail = () => {
   return (
@@ -69,6 +71,7 @@ const ForgotPassword = (props: any) => {
     title: '',
     message: '',
   });
+  const {data, setContextData} = useContext(AuthContext);
 
   const handleChange = (key: string, value: string | number) =>
     setState({...state, [key]: value});
@@ -90,12 +93,27 @@ const ForgotPassword = (props: any) => {
     if (!validation()) {
       return false;
     }
-
-    Alert.alert(
-      'Forgot Password Success',
-      'This will redirect to the OTP if username exists',
-    );
-    navigation.navigate(OTP_SCREEN);
+    // @ts-ignore
+    setContextData((contextData: any) => ({...contextData, apiLoader: true}));
+    axios
+      .post(`${BASE_URL}/auth/forgotPassword`, state)
+      .then((res: any) => {
+        if (res) {
+          // @ts-ignore
+          setContextData({isLoggedIn: true, user: res.data});
+        }
+      })
+      .catch(err => {
+        console.log({err: err.message});
+        Alert.alert('Forgot Password Failed', 'SERVER DOWN');
+      })
+      .finally(() => {
+        // @ts-ignore
+        setContextData((contextData: any) => ({
+          ...contextData,
+          apiLoader: false,
+        }));
+      });
   };
   return (
     <>
@@ -119,13 +137,14 @@ const ForgotPassword = (props: any) => {
           <AppHeader title="Forgot Password" />
           <View style={styles.inputContainer}>
             <InputWithLabel
-              placeholder="Email"
+              placeholder="Username/Email"
               value={state.username}
               onChangeText={e => handleChange('username', e)}
             />
           </View>
           <View style={{paddingVertical: 15}}>
             <AppButton
+              loader={data?.apiLoader}
               label="Reset Password"
               uppercase
               width={160}

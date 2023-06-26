@@ -22,15 +22,27 @@ import React, {useEffect} from 'react';
 // import ResetPassword from './screens/auth/resetpassword';
 // import Login from './screens/auth/login';
 // import Register from './screens/auth/register';
-import Drawer from './navigation/drawernavigation';
 import RNBootSplash from 'react-native-bootsplash';
-// import Navigator from './navigation';
+import MyProvider from './context/contextProvider';
+import Navigator from './navigation';
+
+const Wrapper = () => {
+  return (
+    <MyProvider>
+      <App />
+    </MyProvider>
+  );
+};
 
 const App = () => {
   useEffect(() => {
-    RNBootSplash.hide({fade: true, duration: 500});
+    RNBootSplash.hide({fade: true, duration: 1000});
   }, []);
-  return <Drawer />;
+  return (
+    // <MyProvider>
+    <Navigator />
+    // </MyProvider>
+  );
 };
 
-export default App;
+export default Wrapper;
