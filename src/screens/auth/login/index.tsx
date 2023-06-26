@@ -114,7 +114,7 @@ const Login = (props: any) => {
       })
       .catch(err => {
         console.log({err: err.message});
-        Alert.alert('Login Failed', 'Wrong Credentials');
+        Alert.alert('Login Failed', 'SERVER DOWN');
       })
       .finally(() => {
         // @ts-ignore

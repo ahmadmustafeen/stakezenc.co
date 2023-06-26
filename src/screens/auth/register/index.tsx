@@ -1,5 +1,5 @@
 import {Alert, ScrollView, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   AppHeader,
   AppText,
@@ -9,6 +9,9 @@ import {
 import {styles} from './style';
 import {AlertPrompt} from '../../../components/AlertPrompt';
 import {LOGIN_SCREEN} from '../../../constants/screen';
+import axios from 'axios';
+import AuthContext from '../../../context/authContext';
+import {BASE_URL} from '../../../constants';
 
 const AuthHeader = (props: any) => {
   const {navigateToSignIn} = props;
@@ -56,14 +59,6 @@ const Register = (props: any) => {
   });
 
   const validation = () => {
-    if (!state.sponsorId) {
-      setError({
-        hasError: true,
-        title: 'Validation Error',
-        message: 'Sponsor Id Required!',
-      });
-      return false;
-    }
     if (!state.username) {
       setError({
         hasError: true,
@@ -99,15 +94,34 @@ const Register = (props: any) => {
     return true;
   };
 
+  const {data, setContextData} = useContext(AuthContext);
+
   const onRegister = () => {
     if (!validation()) {
       return false;
     }
 
-    Alert.alert(
-      'Register Success',
-      'This will redirect to the Login if Register is successfull',
-    );
+    // @ts-ignore
+    setContextData((contextData: any) => ({...contextData, apiLoader: true}));
+    axios
+      .post(`${BASE_URL}/auth/login`, state)
+      .then((res: any) => {
+        if (res) {
+          // @ts-ignore
+          setContextData({isLoggedIn: true, user: res.data});
+        }
+      })
+      .catch(err => {
+        console.log({err: err.message});
+        Alert.alert('Registration Failed', 'SERVER DOWN');
+      })
+      .finally(() => {
+        // @ts-ignore
+        setContextData((contextData: any) => ({
+          ...contextData,
+          apiLoader: false,
+        }));
+      });
   };
 
   const handleChange = (key: string, value: string | number) =>
@@ -163,7 +177,12 @@ const Register = (props: any) => {
             I read and agree to the Terms & Conditions
           </AppText>
           <View style={styles.buttonContainer}>
-            <AppButton label="Sign Up" uppercase onPress={onRegister} />
+            <AppButton
+              label="Sign Up"
+              uppercase
+              onPress={onRegister}
+              loader={data?.apiLoader}
+            />
           </View>
         </View>
         <View style={styles.headerContainer}>
