@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Image,
   ScrollView,
@@ -12,19 +11,19 @@ import {AppText} from './AppText';
 // @ts-ignore
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import {
-  BONUS_SUMMARY_SCREEN,
-  CASH_WALLET_SUMMARY_SCREEN,
+  // BONUS_SUMMARY_SCREEN,
+  // CASH_WALLET_SUMMARY_SCREEN,
   CHANGE_ADDRESS_SCREEN,
   CHANGE_PASSWORD_SCREEN,
   DEPOSIT_SCREEN,
   DEPOSIT_SUMMARY_SCREEN,
   EDIT_PROFILE_SCREEN,
   HOME_SCREEN,
-  LEVEL_REPORT_SUMMARY_SCREEN,
+  // LEVEL_REPORT_SUMMARY_SCREEN,
   NEW_SUPPORT_SCREEN,
   PROFILE_SCREEN,
   REFERRAL_TEAM_SCREEN,
-  ROI_INCOME_SUMMARY_SCREEN,
+  // ROI_INCOME_SUMMARY_SCREEN,
   SUPPORT_SUMMARY_SCREEN,
   TREE_STRUCTURE_SCREEN,
   WITHDRAWAL_SCREEN,
@@ -59,7 +58,7 @@ const SummaryNavigation = (props: any) => {
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.navigationItemContainer}
             activeOpacity={0.7}
             onPress={() => props.navigation.navigate(BONUS_SUMMARY_SCREEN)}>
@@ -100,7 +99,7 @@ const SummaryNavigation = (props: any) => {
               Cash Wallet
             </AppText>
             <AntDesignIcon name="arrowright" style={styles.icon} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity
             style={styles.navigationItemContainer}
             activeOpacity={0.7}
@@ -265,7 +264,7 @@ const ProfileNavigation = (props: any) => {
 };
 
 export const CustomDrawerContent = (props: any) => {
-  const {data, setContextData} = useContext(AuthContext);
+  const {setContextData} = useContext(AuthContext);
   const logout = () => {
     setContextData({isLoggedIn: false, user: null, apiLoader: false});
   };
