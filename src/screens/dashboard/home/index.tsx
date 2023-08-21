@@ -39,15 +39,6 @@ const HomeScreen = (props: any) => {
           value={user?.total_income}
           heading="Total Coins"
         />
-        <InfoGraphicContainer value="100.00" heading="Coin Today" />
-        <InfoGraphicContainer value="100.00" heading="Withdrawal Token" />
-        <InfoGraphicContainer value="100.00" heading="Direct Bonus" />
-        <InfoGraphicContainer value="100.00" heading="Level Bonus" />
-        <InfoGraphicContainer value="100.00" heading="Team Sales" />
-        <InfoGraphicContainer value="100.00" heading="Direct Sales" />
-        <InfoGraphicContainer value="100.00" heading="Coin on Staking" />
-        <InfoGraphicContainer value="100.00" heading="Coin this month" />
-        <InfoGraphicContainer value="100.00" heading="Coin total" />
       </ScrollView>
     </View>
   );
