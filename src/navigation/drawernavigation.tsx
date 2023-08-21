@@ -18,6 +18,7 @@ import {
   PROFILE_SCREEN,
   EDIT_PROFILE_SCREEN,
   NEW_SUPPORT_SCREEN,
+  WITHDRAWAL_SCREEN,
 } from '../constants/screen';
 import HomeScreen from '../screens/dashboard/home';
 import DepositScreen from '../screens/dashboard/deposit';
@@ -36,6 +37,7 @@ import ProfileScreen from '../screens/dashboard/profile';
 import ChangeAddressScreen from '../screens/dashboard/changeAddress';
 import ChangePasswordScreen from '../screens/dashboard/changePassword';
 import CashWalletSummaryScreen from '../screens/dashboard/cashWalletSummary';
+import WithdrawalScreen from '../screens/dashboard/withdrawalScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -47,6 +49,7 @@ const DrawerNavigator = () => {
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name={HOME_SCREEN} component={HomeScreen} />
       <Drawer.Screen name={DEPOSIT_SCREEN} component={DepositScreen} />
+      <Drawer.Screen name={WITHDRAWAL_SCREEN} component={WithdrawalScreen} />
       <Drawer.Screen name={REFERRAL_TEAM_SCREEN} component={DirectTeam} />
       <Drawer.Screen name={TREE_STRUCTURE_SCREEN} component={StructureTeam} />
       <Drawer.Screen

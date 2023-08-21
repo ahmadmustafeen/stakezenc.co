@@ -27,6 +27,7 @@ import {
   ROI_INCOME_SUMMARY_SCREEN,
   SUPPORT_SUMMARY_SCREEN,
   TREE_STRUCTURE_SCREEN,
+  WITHDRAWAL_SCREEN,
   WITHDRAWAL_SUMMARY_SCREEN,
 } from '../constants/screen';
 import AuthContext from '../context/authContext';
@@ -291,7 +292,7 @@ export const CustomDrawerContent = (props: any) => {
         <TouchableOpacity
           style={styles.navigationItemContainer}
           activeOpacity={0.7}
-          onPress={() => props.navigation.navigate(HOME_SCREEN)}>
+          onPress={() => props.navigation.navigate(WITHDRAWAL_SCREEN)}>
           <AppText white bold text>
             Withdrawals
           </AppText>

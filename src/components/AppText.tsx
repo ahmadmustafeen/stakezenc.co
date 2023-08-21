@@ -16,6 +16,7 @@ const AppText = (props: AppTextProps) => {
     smallText,
     primary,
     right,
+    customColor,
     left,
     uppercase,
     secondary,
@@ -45,6 +46,7 @@ const AppText = (props: AppTextProps) => {
           right && {textAlign: 'right'},
           left && {textAlign: 'left'},
           uppercase && {textTransform: 'uppercase'},
+          customColor && {color: customColor},
         ]}>
         {children}
       </Text>

@@ -5,15 +5,17 @@ import {lighterBackground} from '../constants';
 interface AppInputProps {
   placeholder?: string;
   value?: string;
+  editable?: boolean;
   onChangeText?: () => void;
 }
 
 const AppInput = (props: AppInputProps) => {
-  const {onChangeText, value, placeholder} = props;
+  const {onChangeText, value, placeholder, editable = true} = props;
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.textStyle}
+        editable={editable}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}

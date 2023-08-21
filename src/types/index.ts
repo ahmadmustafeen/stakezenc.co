@@ -5,6 +5,7 @@ export interface AppButtonProps {
   transparent?: boolean;
   onPress?: () => void;
   uppercase?: boolean;
+  isDisabled?: boolean;
   width?: string | number | undefined;
   smallText?: boolean;
   text?: boolean;
@@ -23,6 +24,7 @@ export interface AppTextProps {
   children: string;
   white?: boolean;
   black?: boolean;
+  customColor?: string;
   pink?: boolean;
   text?: boolean;
   heading?: boolean;

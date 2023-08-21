@@ -1,4 +1,4 @@
 export * from './colors';
 
 export const BASE_URL =
-  'https://ffde-2400-adc1-176-9400-6549-6c37-639-69e2.ngrok-free.app';
+  'https://ed57-2400-adc1-176-9400-c8e3-4a49-5680-8229.ngrok-free.app';

@@ -14,6 +14,7 @@ const AppButton = (props: AppButtonProps) => {
     bgColor,
     width,
     smallText = true,
+    isDisabled = false,
     text,
     heading,
     loader = false,
@@ -21,7 +22,7 @@ const AppButton = (props: AppButtonProps) => {
   } = props;
   return (
     <TouchableOpacity
-      disabled={!!loader}
+      disabled={!!loader || isDisabled}
       onPress={onPress}
       style={[
         styles.container,
